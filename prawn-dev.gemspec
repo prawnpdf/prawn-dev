@@ -31,6 +31,6 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency('rubocop', '~> 1.8.1')
   spec.add_runtime_dependency('rubocop-performance', '~> 1.9.2')
   spec.add_runtime_dependency('rubocop-rspec', '~> 2.1.0')
-  spec.add_runtime_dependency('simplecov', '~> 0.20.0')
+  spec.add_runtime_dependency('simplecov', '~> 0.21.2')
   spec.add_runtime_dependency('yard', '~> 0.9.17')
 end
