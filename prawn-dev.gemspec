@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.summary = 'Shared tools for Prawn projects development'
   spec.homepage = 'https://prawnpdf.org/'
   spec.license = 'MIT'
-  spec.required_ruby_version = '>= 2.5.0'
+  spec.required_ruby_version = '>= 2.6.0'
   spec.required_rubygems_version = '>= 2.0'
 
   spec.cert_chain = ['certs/pointlessone.pem']
@@ -28,9 +28,9 @@ Gem::Specification.new do |spec|
 
   spec.add_runtime_dependency('rake', '~> 13.0')
   spec.add_runtime_dependency('rspec', '~> 3.0')
-  spec.add_runtime_dependency('rubocop', '~> 1.8.1')
-  spec.add_runtime_dependency('rubocop-performance', '~> 1.9.2')
-  spec.add_runtime_dependency('rubocop-rspec', '~> 2.1.0')
+  spec.add_runtime_dependency('rubocop', '~> 1.25.1')
+  spec.add_runtime_dependency('rubocop-performance', '~> 1.13.2')
+  spec.add_runtime_dependency('rubocop-rspec', '~> 2.8.0')
   spec.add_runtime_dependency('simplecov', '~> 0.21.2')
   spec.add_runtime_dependency('yard', '~> 0.9.17')
 end
