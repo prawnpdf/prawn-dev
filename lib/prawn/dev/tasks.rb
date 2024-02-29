@@ -35,11 +35,49 @@ RSpec::Core::RakeTask.new('spec') do |c|
 end
 
 require 'yard'
+YARD_OPTIONS = [
+  '--output-dir', 'doc/html',
+  '--verbose', '--debug',
+  '--load', File.expand_path('yard_markup.rb', __dir__),
+  '--markup', 'markdown',
+  '--markup-provider', 'prawn/dev/yard_markup/document',
+  '--use-cache',
+]
 
 YARD::Rake::YardocTask.new do |t|
-  t.options = ['--output-dir', 'doc/html']
+  t.options = YARD_OPTIONS + t.options
+  t.stats_options = ['--list-undoc', '--compact']
 end
 task docs: :yard
+
+require 'fileutils'
+def stash_yardopts
+  if File.exist?('.yardopts')
+    begin
+      original_opts = Shellwords.shellsplit File.read('.yardopts')
+      require('securerandom')
+      backup_file = ".yardopts-#{SecureRandom.alphanumeric(16)}.backup"
+      FileUtils.move('.yardopts', backup_file)
+      yield original_opts
+    ensure
+      FileUtils.move(backup_file, '.yardopts')
+    end
+  else
+    yield []
+  end
+end
+
+desc 'Generate YARD Documentation continuously'
+task :yard_watch do
+  yard_server = YARD::CLI::Server.new
+  stash_yardopts do |original_opts|
+    File.open('.yardopts', 'w') do |yardopts|
+      yardopts.write((YARD_OPTIONS + original_opts).shelljoin)
+      yardopts.fsync
+      yard_server.run('--reload')
+    end
+  end
+end
 
 require 'rubocop/rake_task'
 

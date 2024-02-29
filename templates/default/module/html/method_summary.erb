@@ -1,0 +1,17 @@
+<% if method_listing.size > 0 %>
+<% require 'zlib' %>
+  <% groups(method_listing) do |list, name| %>
+    <section id="method-summary-<%= Zlib.crc32(name).to_s(36) %>">
+      <h2>
+        <%= name %>
+        <small><a href="#" class="summary_toggle">collapse</a></small>
+      </h2>
+
+      <ul class="summary">
+        <% list.each do |meth| %>
+          <%= yieldall :item => meth %>
+        <% end %>
+      </ul>
+    </section>
+  <% end %>
+<% end %>

@@ -1,0 +1,17 @@
+<%
+  lang = {
+    '.rb' => 'ruby'
+  }[File.extname(object.file)] || 'guess'
+  lexer = ::Rouge::Lexer.find_fancy(lang, object.source)
+  formatter = ::Rouge::Formatters::HTMLLineTable.new(
+    Rouge::Formatters::HTML.new,
+    start_line: object.line || 1,
+    table_class: 'highlight highlighter-rouge'
+  )
+
+%>
+<details class="source-code">
+  <summary><span>Source Code</span></summary>
+  <div class="info file"><%= h object.file %><% if object.line %>, line <%= object.line %><% end %></div>
+  <%= formatter.format(lexer.lex(object.source)) %>
+</details>

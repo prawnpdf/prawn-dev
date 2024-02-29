@@ -1,0 +1,20 @@
+<% if constant_listing.size > 0 %>
+<% require 'zlib' %>
+  <% groups(constant_listing, "Constant") do |list, name| %>
+    <section id="constant-summary-<%= Zlib.crc32(name).to_s(36) %>">
+      <h2>
+        <%= name %>
+        <small><a href="#" class="constants_summary_toggle">collapse</a></small>
+      </h2>
+
+      <dl class="constants">
+        <% list.each do |cnst| %>
+          <dt id="<%= anchor_for(cnst) %>" class="<%= cnst.has_tag?(:deprecated) ? 'deprecated' : '' %>"><%= cnst.name %> =
+            <%= yieldall :object => cnst %>
+          </dt>
+          <dd><pre class="code"><%= format_constant cnst.value %></pre></dd>
+        <% end %>
+      </dl>
+    </section>
+  <% end %>
+<% end %>
