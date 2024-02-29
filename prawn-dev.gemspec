@@ -30,11 +30,11 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency('kramdown-parser-gfm', '~> 1.1')
   spec.add_runtime_dependency('rake', '~> 13.0')
   spec.add_runtime_dependency('rouge', '~> 4.2')
-  spec.add_runtime_dependency('rspec', '~> 3.0')
+  spec.add_runtime_dependency('rspec', '~> 3.12')
   spec.add_runtime_dependency('rubocop', '~> 1.61.0')
   spec.add_runtime_dependency('rubocop-performance', '~> 1.20.2')
   spec.add_runtime_dependency('rubocop-rspec', '~> 2.26.1')
-  spec.add_runtime_dependency('simplecov', '~> 0.21.2')
+  spec.add_runtime_dependency('simplecov', '~> 0.22.0')
   spec.add_runtime_dependency('webrick', '~> 1.8.1')
   spec.add_runtime_dependency('yard', '~> 0.9.35')
 end
