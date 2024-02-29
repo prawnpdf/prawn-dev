@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.summary = 'Shared tools for Prawn projects development'
   spec.homepage = 'https://prawnpdf.org/'
   spec.license = 'MIT'
-  spec.required_ruby_version = '>= 2.6.0'
+  spec.required_ruby_version = '>= 2.7.0'
   spec.required_rubygems_version = '>= 2.0'
 
   spec.cert_chain = ['certs/pointlessone.pem']
