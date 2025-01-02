@@ -22,6 +22,7 @@ Gem::Specification.new do |spec|
   spec.metadata['allowed_push_host'] = 'https://rubygems.org'
   spec.metadata['homepage_uri'] = spec.homepage
   spec.metadata['source_code_uri'] = 'https://github.com/prawnpdf/prawn-dev'
+  spec.metadata['rubygems_mfa_required'] = 'true'
 
   spec.files = Dir['lib/**/*.rb', 'rubocop.yml', 'templates/**/*', 'LICENSE.txt']
   spec.require_paths = ['lib']
