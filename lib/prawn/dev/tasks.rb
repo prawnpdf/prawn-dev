@@ -2,7 +2,7 @@
 
 require 'rubygems/package_task'
 
-unless Kernel.const_defined?('GEMSPEC')
+unless Kernel.const_defined?(:GEMSPEC)
   raise StandardError, 'GEMSPEC is not defined'
 end
 
