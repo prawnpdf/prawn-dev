@@ -10,7 +10,7 @@ package_task = Gem::PackageTask.new(Gem::Specification.load(GEMSPEC))
 package_task.define
 
 built_gem_path = "pkg/#{package_task.package_name}.gem"
-checksum_path = "checksums/#{File.basename built_gem_path}.sha512"
+checksum_path = "checksums/#{File.basename(built_gem_path)}.sha512"
 
 file built_gem_path do
   Rake::Task['package'].invoke
@@ -54,7 +54,7 @@ require 'fileutils'
 def stash_yardopts
   if File.exist?('.yardopts')
     begin
-      original_opts = Shellwords.shellsplit File.read('.yardopts')
+      original_opts = Shellwords.shellsplit(File.read('.yardopts'))
       require('securerandom')
       backup_file = ".yardopts-#{SecureRandom.alphanumeric(16)}.backup"
       FileUtils.move('.yardopts', backup_file)

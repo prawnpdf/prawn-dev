@@ -15,7 +15,7 @@ Gem::Specification.new do |spec|
   spec.required_rubygems_version = '>= 2.0'
 
   spec.cert_chain = ['certs/pointlessone.pem']
-  if $PROGRAM_NAME.end_with? 'gem'
+  if $PROGRAM_NAME.end_with?('gem')
     spec.signing_key = File.expand_path('~/.gem/gem-private_key.pem')
   end
 
