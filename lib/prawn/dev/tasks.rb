@@ -19,7 +19,7 @@ end
 file checksum_path => built_gem_path do
   require 'digest/sha2'
   checksum = Digest::SHA512.new.hexdigest(File.read(built_gem_path))
-  Dir.mkdir('checksums') unless Dir.exist?('checksums')
+  Dir.mkdir_p('checksums')
   File.write(checksum_path, checksum)
 end
 
