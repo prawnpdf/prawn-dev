@@ -42,7 +42,7 @@ YARD_OPTIONS = [
   '--markup', 'markdown',
   '--markup-provider', 'prawn/dev/yard_markup/document',
   '--use-cache',
-]
+].freeze
 
 YARD::Rake::YardocTask.new do |t|
   t.options = YARD_OPTIONS + t.options
