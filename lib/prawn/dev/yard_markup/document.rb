@@ -9,6 +9,8 @@ module Prawn
     module YardMarkup
       class CodeFormatter < ::Rouge::Formatter
         def initialize(opts = {})
+          super
+
           @opts = opts
           @formatter =
             if opts[:inline_theme]
