@@ -388,7 +388,6 @@ Style/MethodCallWithArgsParentheses:
     - to_not
     - eq
     - be
-    - puts
     - yield
 
 Style/MinMaxComparison:
