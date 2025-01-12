@@ -1,2 +1,13 @@
 inherit_from:
   - rubocop.yml
+
+Style/Documentation:
+  Exclude:
+    - lib/rubocop/**/*.rb
+    - lib/prawn/dev/**/*.rb
+
+Style/DocumentationMethod:
+  Exclude:
+    - templates/**/*.rb
+    - lib/rubocop/**/*.rb
+    - lib/prawn/dev/**/*.rb

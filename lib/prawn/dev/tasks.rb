@@ -2,7 +2,7 @@
 
 require 'rubygems/package_task'
 
-unless Kernel.const_defined?('GEMSPEC')
+unless Kernel.const_defined?(:GEMSPEC)
   raise StandardError, 'GEMSPEC is not defined'
 end
 
@@ -10,7 +10,7 @@ package_task = Gem::PackageTask.new(Gem::Specification.load(GEMSPEC))
 package_task.define
 
 built_gem_path = "pkg/#{package_task.package_name}.gem"
-checksum_path = "checksums/#{File.basename built_gem_path}.sha512"
+checksum_path = "checksums/#{File.basename(built_gem_path)}.sha512"
 
 file built_gem_path do
   Rake::Task['package'].invoke
@@ -19,7 +19,7 @@ end
 file checksum_path => built_gem_path do
   require 'digest/sha2'
   checksum = Digest::SHA512.new.hexdigest(File.read(built_gem_path))
-  Dir.mkdir('checksums') unless Dir.exist?('checksums')
+  Dir.mkdir_p('checksums')
   File.write(checksum_path, checksum)
 end
 
@@ -42,7 +42,7 @@ YARD_OPTIONS = [
   '--markup', 'markdown',
   '--markup-provider', 'prawn/dev/yard_markup/document',
   '--use-cache',
-]
+].freeze
 
 YARD::Rake::YardocTask.new do |t|
   t.options = YARD_OPTIONS + t.options
@@ -54,7 +54,7 @@ require 'fileutils'
 def stash_yardopts
   if File.exist?('.yardopts')
     begin
-      original_opts = Shellwords.shellsplit File.read('.yardopts')
+      original_opts = Shellwords.shellsplit(File.read('.yardopts'))
       require('securerandom')
       backup_file = ".yardopts-#{SecureRandom.alphanumeric(16)}.backup"
       FileUtils.move('.yardopts', backup_file)

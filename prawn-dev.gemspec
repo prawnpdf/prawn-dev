@@ -15,13 +15,14 @@ Gem::Specification.new do |spec|
   spec.required_rubygems_version = '>= 2.0'
 
   spec.cert_chain = ['certs/pointlessone.pem']
-  if $PROGRAM_NAME.end_with? 'gem'
+  if $PROGRAM_NAME.end_with?('gem')
     spec.signing_key = File.expand_path('~/.gem/gem-private_key.pem')
   end
 
   spec.metadata['allowed_push_host'] = 'https://rubygems.org'
   spec.metadata['homepage_uri'] = spec.homepage
   spec.metadata['source_code_uri'] = 'https://github.com/prawnpdf/prawn-dev'
+  spec.metadata['rubygems_mfa_required'] = 'true'
 
   spec.files = Dir['lib/**/*.rb', 'rubocop.yml', 'templates/**/*', 'LICENSE.txt']
   spec.require_paths = ['lib']

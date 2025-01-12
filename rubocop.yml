@@ -388,6 +388,7 @@ Style/MethodCallWithArgsParentheses:
     - to_not
     - eq
     - be
+    - yield
 
 Style/MinMaxComparison:
   Enabled: true

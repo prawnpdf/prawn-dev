@@ -5,7 +5,7 @@ def stylesheets
 end
 
 def file(basename, allow_inherited = false)
-  puts "  >>  #{basename}"
+  puts("  >>  #{basename}")
   if basename == 'css/syntax-highlight.css'
     return 'body { background: yellow; }'
   end
