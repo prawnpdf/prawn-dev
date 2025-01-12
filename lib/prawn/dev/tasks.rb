@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'fileutils'
 require 'rubygems/package_task'
 
 unless Kernel.const_defined?(:GEMSPEC)
@@ -19,7 +20,7 @@ end
 file checksum_path => built_gem_path do
   require 'digest/sha2'
   checksum = Digest::SHA512.new.hexdigest(File.read(built_gem_path))
-  Dir.mkdir_p('checksums')
+  FileUtils.mkdir_p('checksums')
   File.write(checksum_path, checksum)
 end
 
