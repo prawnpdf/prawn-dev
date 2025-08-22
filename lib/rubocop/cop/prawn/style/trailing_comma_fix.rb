@@ -7,7 +7,8 @@ module RuboCop
         module TrailingCommaFix
           def should_have_comma?(style, node)
             if style == :prawn_comma
-              node.loc.begin.line != node.loc.end.line # parens are on different lines
+              node.loc.begin && node.loc.end &&
+                (node.loc.begin.line != node.loc.end.line) # parens are on different lines
             else
               super
             end
