@@ -1,6 +1,8 @@
-require:
+plugins:
   - rubocop-performance
   - rubocop-rspec
+
+require:
   - rubocop/cop/prawn_cops
 
 AllCops:
@@ -583,18 +585,6 @@ Performance/StringInclude:
 
 Performance/Sum:
   Enabled: true
-
-RSpec/Capybara:
-  Enabled: false
-
-Capybara:
-  Enabled: false
-
-FactoryBot:
-  Enabled: false
-
-RSpec/Rails:
-  Enabled: false
 
 RSpec/BeEmpty:
   Enabled: true
