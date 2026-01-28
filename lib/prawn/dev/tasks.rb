@@ -1,20 +1,18 @@
 # frozen_string_literal: true
 
 require 'fileutils'
-require 'rubygems/package_task'
 
 unless Kernel.const_defined?(:GEMSPEC)
   raise StandardError, 'GEMSPEC is not defined'
 end
 
-package_task = Gem::PackageTask.new(Gem::Specification.load(GEMSPEC))
-package_task.define
+gemspec = Gem::Specification.load(GEMSPEC)
 
-built_gem_path = "pkg/#{package_task.package_name}.gem"
+built_gem_path = "pkg/#{gemspec.full_name}.gem"
 checksum_path = "checksums/#{File.basename(built_gem_path)}.sha512"
 
-file built_gem_path do
-  Rake::Task['package'].invoke
+file built_gem_path do |t|
+  `gem build "#{GEMSPEC}" --output "#{t.name}"`
 end
 
 file checksum_path => built_gem_path do
