@@ -27,15 +27,15 @@ Gem::Specification.new do |spec|
   spec.files = Dir['lib/**/*.rb', 'rubocop.yml', 'templates/**/*', 'LICENSE.txt']
   spec.require_paths = ['lib']
 
-  spec.add_runtime_dependency('kramdown', '~> 2.4.0')
-  spec.add_runtime_dependency('kramdown-parser-gfm', '~> 1.1')
-  spec.add_runtime_dependency('rake', '~> 13.0')
-  spec.add_runtime_dependency('rouge', '~> 4.2')
-  spec.add_runtime_dependency('rspec', '~> 3.12')
-  spec.add_runtime_dependency('rubocop', '~> 1.61.0')
-  spec.add_runtime_dependency('rubocop-performance', '~> 1.20.2')
-  spec.add_runtime_dependency('rubocop-rspec', '~> 2.26.1')
-  spec.add_runtime_dependency('simplecov', '~> 0.22.0')
-  spec.add_runtime_dependency('webrick', '~> 1.8.1')
-  spec.add_runtime_dependency('yard', '~> 0.9.35')
+  spec.add_dependency('kramdown', '~> 2.4')
+  spec.add_dependency('kramdown-parser-gfm', '~> 1.1')
+  spec.add_dependency('rake', '~> 13.0')
+  spec.add_dependency('rouge', '~> 4.2')
+  spec.add_dependency('rspec', '~> 3.12')
+  spec.add_dependency('rubocop', '~> 1.84.0')
+  spec.add_dependency('rubocop-performance', '~> 1.26.1')
+  spec.add_dependency('rubocop-rspec', '~> 3.9.0')
+  spec.add_dependency('simplecov', '~> 0.22.0')
+  spec.add_dependency('webrick', '~> 1.8.1')
+  spec.add_dependency('yard', '~> 0.9.38')
 end

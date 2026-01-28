@@ -1,13 +1,18 @@
-require:
+plugins:
   - rubocop-performance
   - rubocop-rspec
-  - rubocop/cop/prawn_cops
 
 AllCops:
   TargetRubyVersion: 2.7
   Exclude:
     - pkg/**/*
     - "*.rb"
+
+Gemspec/AddRuntimeDependency:
+  Enabled: true
+
+Gemspec/AttributeAssignment:
+  Enabled: true
 
 Gemspec/DependencyVersion:
   Enabled: true
@@ -24,6 +29,9 @@ Gemspec/RequireMFA:
 
 Layout/ArgumentAlignment:
   EnforcedStyle: with_fixed_indentation
+
+Layout/EmptyLinesAfterModuleInclusion:
+  Enabled: true
 
 Layout/ExtraSpacing:
   AllowForAlignment: false
@@ -105,7 +113,16 @@ Lint/AmbiguousOperatorPrecedence:
 Lint/AmbiguousRange:
   Enabled: true
 
+Lint/ArrayLiteralInRegexp:
+  Enabled: true
+
 Lint/ConstantOverwrittenInRescue:
+  Enabled: true
+
+Lint/ConstantReassignment:
+  Enabled: true
+
+Lint/CopDirectiveSyntax:
   Enabled: true
 
 Lint/DeprecatedConstants:
@@ -123,6 +140,9 @@ Lint/DuplicateMatchPattern:
 Lint/DuplicateRegexpCharacterClassElement:
   Enabled: true
 
+Lint/DuplicateSetElement:
+  Enabled: true
+
 Lint/EmptyBlock:
   Enabled: true
 
@@ -130,6 +150,9 @@ Lint/EmptyClass:
   Enabled: true
 
 Lint/EmptyInPattern:
+  Enabled: true
+
+Lint/HashNewWithKeywordArgumentsAsDefault:
   Enabled: true
 
 Lint/HeredocMethodCallPosition:
@@ -162,6 +185,9 @@ Lint/NumberConversion:
 Lint/NumberedParameterAssignment:
   Enabled: true
 
+Lint/NumericOperationWithConstantResult:
+  Enabled: true
+
 Lint/OrAssignmentToConstant:
   Enabled: true
 
@@ -169,6 +195,9 @@ Lint/RedundantDirGlobSort:
   Enabled: true
 
 Lint/RedundantRegexpQuantifiers:
+  Enabled: true
+
+Lint/RedundantTypeConversion:
   Enabled: true
 
 Lint/RefinementImportMethods:
@@ -183,6 +212,12 @@ Lint/RequireRelativeSelfPath:
 Lint/SafeNavigationChain:
   Enabled: true
 
+Lint/SharedMutableDefault:
+  Enabled: true
+
+Lint/SuppressedExceptionInNumberConversion:
+  Enabled: true
+
 Lint/SymbolConversion:
   Enabled: true
 
@@ -192,10 +227,28 @@ Lint/ToEnumArguments:
 Lint/TripleQuotes:
   Enabled: true
 
+Lint/UnescapedBracketInRegexp:
+  Enabled: true
+
 Lint/UnexpectedBlockArity:
   Enabled: true
 
 Lint/UnmodifiedReduceAccumulator:
+  Enabled: true
+
+Lint/UselessConstantScoping:
+  Enabled: true
+
+Lint/UselessDefaultValueArgument:
+  Enabled: true
+
+Lint/UselessDefined:
+  Enabled: true
+
+Lint/UselessNumericOperation:
+  Enabled: true
+
+Lint/UselessOr:
   Enabled: true
 
 Lint/UselessRescue:
@@ -254,6 +307,9 @@ Naming/MethodParameterName:
 
   ForbiddenNames: []
 
+Naming/PredicateMethod:
+  Enabled: true
+
 Security/CompoundHash:
   Enabled: true
 
@@ -263,10 +319,16 @@ Security/IoMethods:
 Style/AccessorGrouping:
   EnforcedStyle: separated
 
+Style/AmbiguousEndlessMethodDefinition:
+  Enabled: true
+
 Style/ArgumentsForwarding:
   Enabled: true
 
 Style/ArrayIntersect:
+  Enabled: true
+
+Style/ArrayIntersectWithSingleElement:
   Enabled: true
 
 # We need to reference non-ascii characters when testing and explaining
@@ -275,6 +337,9 @@ Style/AsciiComments:
   Enabled: false
 
 Style/AutoResourceCleanup:
+  Enabled: true
+
+Style/BitwisePredicate:
   Enabled: true
 
 Style/BlockDelimiters:
@@ -287,6 +352,15 @@ Style/CollectionCompact:
 Style/CollectionMethods:
   Enabled: true
 
+Style/CollectionQuerying:
+  Enabled: true
+
+Style/CombinableDefined:
+  Enabled: true
+
+Style/ComparableBetween:
+  Enabled: true
+
 Style/ComparableClamp:
   Enabled: true
 
@@ -294,6 +368,9 @@ Style/ConcatArrayLiterals:
   Enabled: true
 
 Style/DataInheritance:
+  Enabled: true
+
+Style/DigChain:
   Enabled: true
 
 Style/DirEmpty:
@@ -316,7 +393,13 @@ Style/DocumentationMethod:
     - manual/**/*.rb
     - spec/**/*_spec.rb
 
+Style/EmptyClassDefinition:
+  Enabled: true
+
 Style/EmptyHeredoc:
+  Enabled: true
+
+Style/EmptyStringInsideInterpolation:
   Enabled: true
 
 Style/EndlessMethod:
@@ -334,7 +417,13 @@ Style/FetchEnvVar:
 Style/FileEmpty:
   Enabled: true
 
+Style/FileNull:
+  Enabled: true
+
 Style/FileRead:
+  Enabled: true
+
+Style/FileTouch:
   Enabled: true
 
 Style/FileWrite:
@@ -347,6 +436,12 @@ Style/HashConversion:
   Enabled: true
 
 Style/HashExcept:
+  Enabled: true
+
+Style/HashFetchChain:
+  Enabled: true
+
+Style/HashSlice:
   Enabled: true
 
 # We don't always prefer modifier statements even if they do fit on a line.
@@ -367,10 +462,22 @@ Style/InPatternThen:
 Style/InvertibleUnlessCondition:
   Enabled: true
 
+Style/ItAssignment:
+  Enabled: true
+
+Style/ItBlockParameter:
+  Enabled: true
+
+Style/KeywordArgumentsMerging:
+  Enabled: true
+
 Style/MagicCommentFormat:
   Enabled: true
 
 Style/MapCompactWithConditionalBlock:
+  Enabled: true
+
+Style/MapIntoArray:
   Enabled: true
 
 Style/MapToHash:
@@ -393,10 +500,16 @@ Style/MethodCallWithArgsParentheses:
 Style/MinMaxComparison:
   Enabled: true
 
+Style/ModuleMemberExistenceCheck:
+  Enabled: true
+
 Style/MultilineInPatternThen:
   Enabled: true
 
 Style/NegatedIfElseCondition:
+  Enabled: true
+
+Style/NegativeArrayIndex:
   Enabled: true
 
 Style/NestedFileDirname:
@@ -446,6 +559,9 @@ Style/RedundantArgument:
 Style/RedundantArrayConstructor:
   Enabled: true
 
+Style/RedundantArrayFlatten:
+  Enabled: true
+
 Style/RedundantConstantBase:
   Enabled: false
 
@@ -461,10 +577,16 @@ Style/RedundantEach:
 Style/RedundantFilterChain:
   Enabled: true
 
+Style/RedundantFormat:
+  Enabled: true
+
 Style/RedundantHeredocDelimiterQuotes:
   Enabled: true
 
 Style/RedundantInitialize:
+  Enabled: true
+
+Style/RedundantInterpolationUnfreeze:
   Enabled: true
 
 Style/RedundantLineContinuation:
@@ -488,10 +610,19 @@ Style/ReturnNil:
 Style/ReturnNilInPredicateMethodDefinition:
   Enabled: true
 
+Style/ReverseFind:
+  Enabled: true
+
+Style/SafeNavigationChainLength:
+  Enabled: true
+
 Style/SelectByRegexp:
   Enabled: true
 
 Style/Send:
+  Enabled: true
+
+Style/SendWithLiteralMethodName:
   Enabled: true
 
 Style/SingleLineDoEndBlock:
@@ -503,6 +634,9 @@ Style/StringChars:
 Style/StringMethods:
   Enabled: true
 
+Style/SuperArguments:
+  Enabled: true
+
 Style/SuperWithArgsParentheses:
   Enabled: true
 
@@ -510,13 +644,13 @@ Style/SwapValues:
   Enabled: true
 
 Style/TrailingCommaInArguments:
-  EnforcedStyleForMultiline: prawn_comma
+  EnforcedStyleForMultiline: diff_comma
 
 Style/TrailingCommaInArrayLiteral:
-  EnforcedStyleForMultiline: prawn_comma
+  EnforcedStyleForMultiline: diff_comma
 
 Style/TrailingCommaInHashLiteral:
-  EnforcedStyleForMultiline: prawn_comma
+  EnforcedStyleForMultiline: diff_comma
 
 Style/YAMLFileRead:
   Enabled: true
@@ -575,6 +709,9 @@ Performance/SortReverse:
 Performance/Squeeze:
   Enabled: true
 
+Performance/StringBytesize:
+  Enabled: true
+
 Performance/StringIdentifierArgument:
   Enabled: true
 
@@ -584,67 +721,16 @@ Performance/StringInclude:
 Performance/Sum:
   Enabled: true
 
-RSpec/Capybara:
-  Enabled: false
-
-Capybara:
-  Enabled: false
-
-FactoryBot:
-  Enabled: false
-
-RSpec/Rails:
-  Enabled: false
-
-RSpec/BeEmpty:
-  Enabled: true
-
-RSpec/BeEq:
-  Enabled: true
-
-RSpec/BeNil:
-  Enabled: true
-
-RSpec/ChangeByZero:
-  Enabled: true
-
-RSpec/ClassCheck:
-  Enabled: true
-
-RSpec/ContainExactly:
-  Enabled: true
-
-RSpec/DescribedClassModuleWrapping:
-  Enabled: true
-
-RSpec/DuplicatedMetadata:
-  Enabled: true
-
-RSpec/EmptyMetadata:
-  Enabled: true
-
-RSpec/Eq:
+Performance/ZipWithoutBlock:
   Enabled: true
 
 RSpec/ExampleLength:
   Enabled: false
 
-RSpec/ExcessiveDocstringSpacing:
+RSpec/IncludeExamples:
   Enabled: true
 
-RSpec/IdenticalEqualityAssertion:
-  Enabled: true
-
-RSpec/IndexedLet:
-  Enabled: true
-
-RSpec/MatchArray:
-  Enabled: true
-
-RSpec/MessageExpectation:
-  Enabled: true
-
-RSpec/MetadataStyle:
+RSpec/LeakyLocalVariable:
   Enabled: true
 
 RSpec/MultipleExpectations:
@@ -653,41 +739,8 @@ RSpec/MultipleExpectations:
 RSpec/NestedGroups:
   Max: 5
 
-RSpec/NoExpectationExample:
-  Enabled: true
-
 RSpec/NotToNot:
   EnforcedStyle: to_not
 
-RSpec/PendingWithoutReason:
-  Enabled: true
-
-RSpec/ReceiveMessages:
-  Enabled: true
-
-RSpec/RedundantAround:
-  Enabled: true
-
-RSpec/RedundantPredicateMatcher:
-  Enabled: true
-
-RSpec/RemoveConst:
-  Enabled: true
-
-RSpec/SkipBlockInsideExample:
-  Enabled: true
-
-RSpec/SortMetadata:
-  Enabled: true
-
-RSpec/SpecFilePathFormat:
-  Enabled: true
-
-RSpec/SpecFilePathSuffix:
-  Enabled: true
-
-RSpec/SubjectDeclaration:
-  Enabled: true
-
-RSpec/VerifiedDoubleReference:
+RSpec/Output:
   Enabled: true
