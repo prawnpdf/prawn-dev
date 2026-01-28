@@ -49,7 +49,6 @@ YARD::Rake::YardocTask.new do |t|
 end
 task docs: :yard
 
-require 'fileutils'
 def stash_yardopts
   if File.exist?('.yardopts')
     begin
